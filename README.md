@@ -1,3 +1,2 @@
 # Javascript
-Collection of Javascript functions
-Javascripti algorithms
+Collection Of Javascript Functions and Algorithms
