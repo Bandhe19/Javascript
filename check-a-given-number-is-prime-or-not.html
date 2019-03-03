@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prime number</title>
+	<style type="text/css">
+	body  {text-align: center;}
+	input {width: 200px;height: 32px;border-radius: 10px;border: 1px solid black;text-align: center;}
+	button{width: 100px;height: 37px;border-radius: 10px;border: 1px solid black;background: #FF9800;margin: 32px 0px 0px 0px;}
+	#messageBox{margin: 10px;}
+	</style>
+</head>
+<body>
+
+<h1>Prime number</h1>
+<input type="text" class="inputBox" name="" placeholder="Input data"><span id="messageBox"></span><br>
+<button class="button" onclick="submitForm()">Submit</button>
+
+<!-- Script -->
+<script type="text/javascript">
+	/**
+  		* @author Nawaaz
+  		* @author Nawaaz K <bandhe19@egmail.com>
+  	*/
+	//Function to check whether a given number is prime or not
+	function submitForm()
+	{
+		var inputBox=document.querySelector('.inputBox');
+		var messageBox=document.querySelector('#messageBox');
+		var inputData=inputBox.value;
+		var divisor = 2;
+
+		if(inputData =='')
+		{
+			messageBox.textContent='Please enter a inputData';
+			return;
+		}
+		messageBox.textContent='';
+
+  		while (inputData > divisor)
+  		{
+    		if(inputData % divisor == 0)
+    		{
+    			messageBox.textContent=inputData+' is not a prime';
+    			return;
+    		}
+    		else
+    		{
+    			divisor++;
+    		}	
+  		}
+  		messageBox.textContent=inputData+' is a prime';
+	}
+</script>
+</body>
+</html>
