@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find a pair of elements from an array whose sum equals a given number</title>
+	<style type="text/css">
+	body  {text-align: center;}
+	input {width: 200px;height: 32px;border-radius: 10px;border: 1px solid black;text-align: center;}
+	button{width: 100px;height: 37px;border-radius: 10px;border: 1px solid black;background: #FF9800;margin: 32px 0px 0px 0px;}
+	#messageBox{margin: 10px;}
+	</style>
+</head>
+<body>
+
+<h1>Find a pair of elements from an array whose sum equals a given number</h1>
+<p>See the console</p>
+
+<!-- Script -->
+<script type="text/javascript">
+	/**
+  		* @author Nawaaz
+  		* @author Nawaaz K <bandhe19@egmail.com>
+  	*/
+	
+
+    function pairMatchingSum (arr, sum) 
+    {
+        var start, end, tempSum;
+
+        var i = 0 ;
+        var j = arr.length - 1;
+
+        // Create a new Object instance
+        var pairValues = {};
+        var sortedArray = arr.sort();
+
+        while (i !== j) 
+        {
+            start = sortedArray[i];
+            end = sortedArray[j];
+            tempSum = start + end;
+
+            if (tempSum === sum) 
+            {
+                // Add matching pair to the Object. Object does not allow duplicate keys.
+                pairValues[start +'-'+ end] = true;
+                i++;
+                j--;
+
+            } 
+            else if (tempSum > sum) 
+            {
+                j--;
+
+            } 
+            else 
+            {
+                i++;
+            }
+        }
+
+        console.info("Pairs of values", Object.keys(pairValues));
+
+    }
+    var array = [2, 3, 2, 5, 4, 5, 5, 5, 5, 9, 6, 8, 8, 7];
+    var sum = 10;
+    pairMatchingSum(array, sum);
+</script>
+</body>
