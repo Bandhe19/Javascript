@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check a given string has balanced braces or not </title>
+	<style type="text/css">
+	body  {text-align: center;}
+	input {width: 200px;height: 32px;border-radius: 10px;border: 1px solid black;text-align: center;}
+	button{width: 100px;height: 37px;border-radius: 10px;border: 1px solid black;background: #FF9800;margin: 32px 0px 0px 0px;}
+	#messageBox{margin: 10px;}
+	</style>
+</head>
+<body>
+
+<h1>Balanced braces</h1>
+<input type="text" class="inputBox" name="" placeholder="Input data"><span id="messageBox"></span><br>
+<button class="button" onclick="submitForm()">Submit</button>
+
+<!-- Script -->
+<script type="text/javascript">
+	/**
+  		* @author Nawaaz
+  		* @author Nawaaz K <bandhe19@egmail.com>
+  	*/
+	function submitForm()
+	{
+		var inputBox=document.querySelector('.inputBox');
+		var messageBox=document.querySelector('#messageBox');
+		var inputData=inputBox.value;
+
+		if(inputData =='')
+		{
+			messageBox.textContent='Please enter a string';
+			return;
+		}
+		messageBox.textContent='';
+        if(isBalancedString(inputData))
+        {
+            messageBox.textContent=inputData+' is a balanced'; 
+        }
+        else
+        {
+            messageBox.textContent=inputData+' is not balanced '; 
+        }
+  		 
+	}
+    function isBalancedString(string)
+    {
+        var parentheses = "[]{}()",
+            stack = [],
+            i, 
+            character, 
+            bracePosition;
+
+        for(i = 0; character = string[i]; i++) 
+        {
+            bracePosition = parentheses.indexOf(character);
+
+            if(bracePosition === -1) 
+            {
+                continue;
+            }
+
+            if(bracePosition % 2 === 0) 
+            {   
+                stack.push(bracePosition + 1); // push next expected brace position
+            } 
+            else 
+            {   
+                if(stack.length === 0 || stack.pop() !== bracePosition) 
+                {
+                    return false;
+                }
+            }
+        }
+
+        return stack.length === 0;
+    }
+</script>
+</body>
+</html>
