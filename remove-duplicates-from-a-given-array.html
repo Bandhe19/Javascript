@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Remove duplicates from a given array</title>
+	<style type="text/css">
+	body  {text-align: center;}
+	input {width: 200px;height: 32px;border-radius: 10px;border: 1px solid black;text-align: center;}
+	button{width: 100px;height: 37px;border-radius: 10px;border: 1px solid black;background: #FF9800;margin: 32px 0px 0px 0px;}
+	#messageBox{margin: 10px;}
+	</style>
+</head>
+<body>
+
+<h1>Remove duplicates from a given array</h1>
+<p>See the console</p>
+
+<!-- Script -->
+<script type="text/javascript">
+	/**
+  		* @author Nawaaz
+  		* @author Nawaaz K <bandhe19@egmail.com>
+  	*/
+	//Function to check whether a given number is prime or not
+	function removeDuplicates(array) 
+    {
+        var indexValue = {};
+        array.forEach(function(i) 
+        {
+            if(!indexValue[i]) 
+            {
+                indexValue[i] = true;
+            }
+        });
+        return Object.keys(indexValue);
+    }
+
+    var array = [1, 1, 3, 5, 3, 5,4];
+    console.info((array)); 
+    console.info(removeDuplicates(array)); 
+</script>
+</body>
